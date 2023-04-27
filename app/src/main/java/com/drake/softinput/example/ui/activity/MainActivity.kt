@@ -1,6 +1,7 @@
 package com.drake.softinput.example.ui.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import com.drake.brv.utils.addModels
@@ -56,10 +57,15 @@ class MainActivity : BaseMenuActivity<ActivityMainBinding>(R.layout.activity_mai
 
     override fun onClick(v: View) {
         when (v) {
+            binding.btnJump -> {
+                startActivity(Intent(this@MainActivity, PersonActivity::class.java))
+            }
+
             binding.btnSend -> {
                 binding.rv.addModels(model.getMessages()) // 添加一条消息
                 binding.rv.scrollToPosition(binding.rv.adapter!!.itemCount - 1) // 保证最新一条消息显示
             }
+
             binding.rv -> {
                 hideSoftInput()
             }

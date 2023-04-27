@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 33
 
     signingConfigs {
         signed {
@@ -40,7 +40,9 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures.dataBinding = true
-
+    buildFeatures {
+        viewBinding true
+    }
     applicationVariants.all {
         it.outputs.each { output ->
             output.outputFileName = "${rootProject.name}.apk"
@@ -50,10 +52,10 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.6.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation project(path: ':soft-input-event')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.2'
@@ -65,4 +67,8 @@ dependencies {
     implementation 'com.github.liangjingkanji:debugkit:1.3.0' // 调试窗口
     implementation "com.github.bumptech.glide:glide:4.11.0" // 图片加载
     implementation 'com.github.liangjingkanji:spannable:1.1.4' // 富文本
+
+
+    implementation "androidx.activity:activity-ktx:1.7.0"//新添加
+    implementation "androidx.fragment:fragment-ktx:1.5.6"
 }
